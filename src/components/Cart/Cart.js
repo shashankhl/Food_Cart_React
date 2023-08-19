@@ -12,7 +12,7 @@ const Cart = (props) => {
   const [didSubmit, setDidSubmit] = useState(false);
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  const totalAmount = `₹${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
   const cartItemRemoveHandler = (id) => {
@@ -29,7 +29,7 @@ const Cart = (props) => {
 
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true);
-    await fetch(process.env.FIREBASE_O, {
+    await fetch(process.env.REACT_APP_FIREBASE_O, {
       method: "POST",
       body: JSON.stringify({
         user: userData,

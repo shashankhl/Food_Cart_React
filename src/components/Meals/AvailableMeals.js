@@ -13,14 +13,13 @@ const AvailableMeals = () => {
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const response = await fetch(process.env.FIREBASE_M);
+      const response = await fetch(`${process.env.REACT_APP_FIREBASE_M}`);
 
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
 
       const responseData = await response.json();
-      console.log(response, responseData);
 
       const loadedMeals = [];
 
